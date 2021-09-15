@@ -11,33 +11,33 @@ const ProtectRoute: React.FC<AppProps> = ({
   Component,
   pageProps,
 }: AppProps) => {
-  const router = useRouter()
-  const dispatch = useAppDispatch()
+  // const router = useRouter()
+  // const dispatch = useAppDispatch()
 
-  const authenticated = useAppSelector(
-    (state: RootState) => state.auth.authenticated
-  )
+  // const authenticated = useAppSelector(
+  //   (state: RootState) => state.auth.authenticated
+  // )
 
-  const requiresAuth = () => {
-    if (router.pathname === '/') return false
-    return (
-      !authenticated &&
-      !PublicPaths.find((routes) => router.pathname.includes(routes))
-    )
-  }
+  // const requiresAuth = () => {
+  //   if (router.pathname === '/') return false
+  //   return (
+  //     !authenticated &&
+  //     !PublicPaths.find((routes) => router.pathname.includes(routes))
+  //   )
+  // }
 
-  useEffect(() => {
-    if (requiresAuth() && router) {
-      // router.push(`/login?redirected_from=${location.pathname}`)
-    }
-    if (!authenticated) {
-      // dispatch(getUser())
-    }
-  }, [authenticated])
+  // useEffect(() => {
+  //   if (requiresAuth() && router) {
+  //     // router.push(`/login?redirected_from=${location.pathname}`)
+  //   }
+  //   if (!authenticated) {
+  //     // dispatch(getUser())
+  //   }
+  // }, [authenticated])
 
-  if (requiresAuth()) {
-    return <></>
-  }
+  // if (requiresAuth()) {
+  //   return <></>
+  // }
 
   return <Component {...pageProps} />
 }
