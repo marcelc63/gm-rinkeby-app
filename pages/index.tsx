@@ -65,7 +65,7 @@ export default function Home() {
           'DD HH:mm a'
         ),
         message: gm.message,
-        handle: gm.handle,
+        handle: gm.handle.replace('@', ''),
         style: `text-${gm.fontSize} font-${gm.fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gm.gradientFrom}-500 to-${gm.gradientTo}-500 animate-${gm.animation}`,
       })
     })
@@ -103,7 +103,7 @@ export default function Home() {
             'DD HH:mm a'
           ),
           message: message,
-          handle: handle,
+          handle: handle.replace('@', ''),
           style: `text-${fontSize} font-${fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gradientFrom}-500 to-${gradientTo}-500 animate-${animation}`,
         }
         setSucceed(gm)
@@ -118,7 +118,7 @@ export default function Home() {
               'DD HH:mm a'
             ),
             message: gm.message,
-            handle: gm.handle,
+            handle: gm.handle.replace('@', ''),
             style: `text-${gm.fontSize} font-${gm.fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gm.gradientFrom}-500 to-${gm.gradientTo}-500 animate-${gm.animation}`,
           })
         })
@@ -157,7 +157,7 @@ export default function Home() {
 
   const { register, handleSubmit } = useForm({})
   const onSendGM = async (data: any) => {
-    const handle = data.handle.toLowerCase()
+    const handle = data.handle.toLowerCase().replace('@', '')
     sendGM(handle)
   }
 
