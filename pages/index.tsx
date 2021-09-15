@@ -43,9 +43,10 @@ export default function Home() {
     if (!ethereum) {
       alert('Get metamask!')
     }
-    const accounts = ethereum.request({ method: 'eth_requestAccounts' })
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
     if (accounts[0]) {
       setAuthorized(true)
+      getAllGMs()
     }
   }
 
