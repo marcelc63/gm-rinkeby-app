@@ -119,7 +119,7 @@ export default function Home() {
             ),
             message: gm.message,
             handle: gm.handle,
-            style: `text-${gm.fontSize} font-${gm.fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gm.gradientFrom}-400 to-${gm.gradientTo}-600 animate-${gm.animation}`,
+            style: `text-${gm.fontSize} font-${gm.fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gm.gradientFrom}-500 to-${gm.gradientTo}-500 animate-${gm.animation}`,
           })
         })
         setGMs(gmsCleaned.reverse())
@@ -287,6 +287,15 @@ export default function Home() {
               </div>
             )
           })}
+        <div className="flex flex-row mb-8">
+          <div className="h-6 w-6 bg-gradient-to-br from-yellow-500 to-red-500 rounded-full mx-2"></div>
+          <div className="h-6 w-6 bg-gradient-to-br from-red-500 to-black-500 rounded-full mx-2"></div>
+          <div className="h-6 w-6 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full mx-2"></div>
+          <div className="h-6 w-6 bg-gradient-to-br from-purple-500 to-orange-500 rounded-full mx-2"></div>
+          <div className="h-6 w-6 bg-gradient-to-br from-green-500 to-pink-500 rounded-full mx-2"></div>
+          <div className="h-6 w-6 bg-gradient-to-br from-orange-500 to-green-500 rounded-full mx-2"></div>
+          <div className="h-6 w-6 bg-gradient-to-br from-blue-500 to-gray-500 rounded-full mx-2"></div>
+        </div>
       </div>
       <Modal open={loading}>
         <p className="text-center text-4xl animate-bounce">
