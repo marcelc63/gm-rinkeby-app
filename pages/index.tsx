@@ -318,16 +318,7 @@ export default function Home() {
             <p className="text-center text-gray-400">auto close in 5 seconds</p>
           </div>
         )}
-      </Modal>
-      <Modal open={false}>
-        <p className="text-md font-light animate-pulse">Test</p>
-        <p className="text-lg font-normal animate-pulse">Test</p>
-        <p className="text-xl font-medium">Test</p>
-        <p className="text-2xl font-semibold">Test</p>
-        <p className="text-3xl font-bold">Test</p>
-        <p className="text-4xl font-extrabold">Test</p>
-        <p className="text-4xl font-black">Test</p>
-      </Modal>
+      </Modal>     
     </div>
   )
 }
