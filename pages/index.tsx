@@ -189,15 +189,6 @@ export default function Home() {
             @marcelc63
           </a>
         </p>
-        <div className="flex flex-row text-white">
-          <p className="px-2">Rules</p>
-          <p>·</p>
-          <p className="px-2">GM Rarity</p>
-          <p>·</p>
-          <p className="px-2">Your GM</p>
-          <p>·</p>
-          <p className="px-2">LeaderBoard</p>
-        </div>
       </div>
       {!connected && (
         <div className="flex flex-col w-full items-center px-8 mb-8">
