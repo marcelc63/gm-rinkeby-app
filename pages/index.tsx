@@ -184,6 +184,7 @@ export default function Home() {
           NFT Twitter's terminologies that{' '}
           <a
             href="https://twitter.com/punk6529/status/1433002033242595338"
+            target="_blank"
             className="underline"
           >
             @6529
@@ -192,18 +193,30 @@ export default function Home() {
         </p>
         <p className="text-white text-center">
           Created as a final project for{' '}
-          <a href="https://twitter.com/_buildspace" className="underline">
+          <a
+            href="https://twitter.com/_buildspace"
+            target="_blank"
+            className="underline"
+          >
             @buildspace
           </a>
           , inspired by{' '}
-          <a href="https://twitter.com/gmtheapp" className="underline">
+          <a
+            href="https://twitter.com/gmtheapp"
+            target="_blank"
+            className="underline"
+          >
             @gmtheapp
           </a>
           .
         </p>
         <p className="text-white mb-4 text-center">
           by{' '}
-          <a href="https://twitter.com/marcelc63" className="underline">
+          <a
+            href="https://twitter.com/marcelc63"
+            target="_blank"
+            className="underline"
+          >
             @marcelc63
           </a>
         </p>
@@ -270,7 +283,11 @@ export default function Home() {
                 key={`${index}`}
               >
                 <p>
-                  <a href={``} className="underline text-blue-500">
+                  <a
+                    href={`https://twitter.com/${gm.handle}`}
+                    target="_blank"
+                    className="underline text-blue-500"
+                  >
                     @{gm.handle}
                   </a>{' '}
                   says
@@ -280,6 +297,7 @@ export default function Home() {
                   {gm.timestamp} ·{' '}
                   <a
                     href={`https://rinkeby.etherscan.io/address/${gm.address}`}
+                    target="_blank"
                     className="underline cursor-pointer"
                   >
                     {gm.address}
@@ -314,7 +332,8 @@ export default function Home() {
           <div className="w-full">
             <p className="text-center text-4xl mb-4">
               <a
-                href={`https://rinkeby.etherscan.io/address/${succeed.address}`}
+                href={`https://twitter.com/${succeed.handle}`}
+                target="_blank"
                 className="underline"
               >
                 @{succeed.handle}
