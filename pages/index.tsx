@@ -298,8 +298,8 @@ export default function Home() {
         </div>
       </div>
       <Modal open={loading}>
-        <p className="text-center text-4xl animate-bounce">
-          Sending your GM 👋
+        <p className="text-center text-4xl animate-bounce animate-pulse">
+          Sending GM 👋
         </p>
       </Modal>
       <Modal open={failed} close={() => setFailed(false)}>
@@ -318,7 +318,7 @@ export default function Home() {
             <p className="text-center text-gray-400">auto close in 5 seconds</p>
           </div>
         )}
-      </Modal>     
+      </Modal>
     </div>
   )
 }
