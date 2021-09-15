@@ -15,7 +15,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [failed, setFailed] = useState(false)
   const [succeed, setSucceed] = useState<any>(undefined)
-  const [reload, setReload] = useState(0)
 
   const checkIfWalletIsConnected = async () => {
     const { ethereum } = window as any
@@ -74,7 +73,7 @@ export default function Home() {
 
     gmContract.on(
       'NewGM',
-      (
+      async (
         from,
         timestamp,
         handle,
@@ -108,8 +107,25 @@ export default function Home() {
           style: `text-${fontSize} font-${fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gradientFrom}-400 to-${gradientTo}-600 animate-${animation}`,
         }
         setSucceed(gm)
-        setReload(reload + 1)
-        setGMs([gm].concat(gms))
+
+        let resGms = await gmContract.getAllGMs()
+
+        let gmsCleaned: any = []
+        resGms.forEach((gm: any) => {
+          gmsCleaned.push({
+            address: gm.gmer,
+            timestamp: DateTime.fromMillis(gm.timestamp * 1000).toFormat(
+              'DD HH:mm a'
+            ),
+            message: gm.message,
+            handle: gm.handle,
+            style: `text-${gm.fontSize} font-${gm.fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gm.gradientFrom}-400 to-${gm.gradientTo}-600 animate-${gm.animation}`,
+          })
+        })
+        setGMs(gmsCleaned.reverse())
+        setTimeout(() => {
+          setSucceed(undefined)
+        }, 5000)
       }
     )
   }
@@ -126,7 +142,7 @@ export default function Home() {
         signer
       )
 
-      const gmTxn = await gmContract.gm(handle)
+      const gmTxn = await gmContract.gm(handle, { gasLimit: 400000 })
       console.log('Mining...', gmTxn.hash)
       setLoading(true)
       await gmTxn.wait()
@@ -250,7 +266,7 @@ export default function Home() {
             return (
               <div
                 className="max-w-lg bg-white p-4 rounded shadow-md w-full mb-4"
-                key={`${reload}-${index}`}
+                key={`${index}`}
               >
                 <p>
                   <a href={``} className="underline text-blue-500">
@@ -287,7 +303,10 @@ export default function Home() {
         {succeed && (
           <div className="w-full">
             <p className="text-center text-4xl mb-4">Nice! You said</p>
-            <p className={`text-center ${succeed.style}`}>{succeed.message}</p>
+            <p className={`text-center mb-4 ${succeed.style}`}>
+              {succeed.message}
+            </p>
+            <p className="text-center text-gray-400">auto close in 5 seconds</p>
           </div>
         )}
       </Modal>
