@@ -188,7 +188,7 @@ export default function Home() {
           >
             @6529
           </a>{' '}
-          shared
+          shared along with a random color, font size, boldness, and animation!
         </p>
         <p className="text-white text-center">
           Created as a final project for{' '}
@@ -230,7 +230,8 @@ export default function Home() {
             </p>
             <p className="text-center text-lg mb-4">
               Whenever you said GM, the GM message is randomly created on the
-              chain.
+              chain along with a random color, font size, font boldness, and
+              animation!
             </p>
             <button
               onClick={connectWallet}
