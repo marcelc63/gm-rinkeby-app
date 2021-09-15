@@ -179,7 +179,7 @@ export default function Home() {
         <h2 className="text-white text-3xl mb-2 text-center">
           Say GM to each other via Rinkeby blockchain network!
         </h2>
-        <p className="text-white">
+        <p className="text-white text-center">
           When you click Send GM, a sentence will be randomly created based on
           NFT Twitter's terminologies that{' '}
           <a
@@ -188,9 +188,9 @@ export default function Home() {
           >
             @6529
           </a>{' '}
-          taught
+          shared
         </p>
-        <p className="text-white">
+        <p className="text-white text-center">
           Created as a final project for{' '}
           <a href="https://twitter.com/_buildspace" className="underline">
             @buildspace
@@ -201,7 +201,7 @@ export default function Home() {
           </a>
           .
         </p>
-        <p className="text-white mb-4">
+        <p className="text-white mb-4 text-center">
           by{' '}
           <a href="https://twitter.com/marcelc63" className="underline">
             @marcelc63
