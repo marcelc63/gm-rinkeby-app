@@ -15,6 +15,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [failed, setFailed] = useState(false)
   const [succeed, setSucceed] = useState<any>(undefined)
+  const [reload, setReload] = useState(0)
 
   const checkIfWalletIsConnected = async () => {
     const { ethereum } = window as any
@@ -106,8 +107,9 @@ export default function Home() {
           handle: handle,
           style: `text-${fontSize} font-${fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gradientFrom}-400 to-${gradientTo}-600 animate-${animation}`,
         }
-        setGMs([gm].concat(gms))
         setSucceed(gm)
+        setReload(reload + 1)
+        setGMs([gm].concat(gms))
       }
     )
   }
@@ -155,10 +157,10 @@ export default function Home() {
   return (
     <div className="bg-gradient-to-br from-blue-500 to-purple-500 min-h-screen">
       <div className="flex flex-col w-full items-center p-8">
-        <h1 className="font-bold text-6xl text-white mb-4">
+        <h1 className="font-bold text-6xl text-white mb-4 text-center">
           👋 <span className="filter drop-shadow-lg">GM!</span>
         </h1>
-        <h2 className="text-white text-3xl mb-2">
+        <h2 className="text-white text-3xl mb-2 text-center">
           Say GM to each other via Rinkeby blockchain network!
         </h2>
         <p className="text-white">
@@ -248,7 +250,7 @@ export default function Home() {
             return (
               <div
                 className="max-w-lg bg-white p-4 rounded shadow-md w-full mb-4"
-                key={index}
+                key={`${reload}-${index}`}
               >
                 <p>
                   <a href={``} className="underline text-blue-500">
@@ -277,8 +279,8 @@ export default function Home() {
       </Modal>
       <Modal open={failed} close={() => setFailed(false)}>
         <p className="text-center text-4xl text-red-500">
-          😢 Transaction failed due to "Out of Gas" error, consider redoing with
-          higher gas
+          😢 Transaction failed, please make a new transaction and consider
+          redoing with higher gas
         </p>
       </Modal>
       <Modal open={succeed} close={() => setSucceed(undefined)}>
