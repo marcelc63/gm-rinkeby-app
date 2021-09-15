@@ -66,7 +66,7 @@ export default function Home() {
         ),
         message: gm.message,
         handle: gm.handle,
-        style: `text-${gm.fontSize} font-${gm.fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gm.gradientFrom}-400 to-${gm.gradientTo}-600 animate-${gm.animation}`,
+        style: `text-${gm.fontSize} font-${gm.fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gm.gradientFrom}-500 to-${gm.gradientTo}-500 animate-${gm.animation}`,
       })
     })
     setGMs(gmsCleaned.reverse())
@@ -104,7 +104,7 @@ export default function Home() {
           ),
           message: message,
           handle: handle,
-          style: `text-${fontSize} font-${fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gradientFrom}-400 to-${gradientTo}-600 animate-${animation}`,
+          style: `text-${fontSize} font-${fontWeight} text-transparent bg-clip-text bg-gradient-to-br from-${gradientFrom}-500 to-${gradientTo}-500 animate-${animation}`,
         }
         setSucceed(gm)
 
