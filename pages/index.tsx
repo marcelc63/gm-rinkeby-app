@@ -311,7 +311,15 @@ export default function Home() {
       <Modal open={succeed} close={() => setSucceed(undefined)}>
         {succeed && (
           <div className="w-full">
-            <p className="text-center text-4xl mb-4">Nice! You said</p>
+            <p className="text-center text-4xl mb-4">
+              <a
+                href={`https://rinkeby.etherscan.io/address/${succeed.address}`}
+                className="underline"
+              >
+                @{succeed.handle}
+              </a>{' '}
+              says
+            </p>
             <p className={`text-center mb-4 ${succeed.style}`}>
               {succeed.message}
             </p>
